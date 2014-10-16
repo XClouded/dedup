@@ -1,10 +1,11 @@
 package com.singhinderjeet.dedup;
 
 import java.io.BufferedReader;
-import java.io.Closeable;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+
+import com.singhinderjeet.dedup.util.IoUtils;
 
 /**
  * Main class to detect and delete duplicates.
@@ -111,14 +112,8 @@ public final class Main {
     } catch (IOException e) {
       return false; // Not same
     } finally {
-      closeIgnoringExceptions(reader1);
-      closeIgnoringExceptions(reader2);
+      IoUtils.closeIgnoringExceptions(reader1);
+      IoUtils.closeIgnoringExceptions(reader2);
     }
-  }
-
-  private static void closeIgnoringExceptions(Closeable closeable) {
-    try {
-      closeable.close();
-    } catch (Exception ignored) {}
   }
 }

@@ -1,0 +1,3 @@
+#/bin/bash
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+java -classpath $DIR/target/dedup-1.0-SNAPSHOT.jar com.singhinderjeet.dedup.AndroidResDedup $@
